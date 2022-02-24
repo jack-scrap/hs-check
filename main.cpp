@@ -18,7 +18,7 @@ int main() {
 			}
 		}
 
-		disp.clear(0, 0, 0, 1);
+		disp.clear(0.0, 0.0, 0.0, 1.0);
 
 		piece.draw();
 
