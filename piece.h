@@ -14,7 +14,7 @@ class Piece {
 
 		GLfloat _vtc[(8 * 3) + 3];
 
-		GLuint _idc[8 * 3] = {
+		GLushort _idc[8 * 3] = {
 			0, 1, _n,
 			1, 2, _n,
 			2, 3, _n,

@@ -60,7 +60,7 @@ void Piece::draw() {
 	glBindVertexArray(_id[VAO]);
 	_prog.use();
 
-	glDrawElements(GL_TRIANGLES, sizeof _idc / sizeof *_idc, GL_UNSIGNED_INT, (GLvoid*) 0);
+	glDrawElements(GL_TRIANGLES, sizeof _idc / sizeof *_idc, GL_UNSIGNED_SHORT, (GLvoid*) 0);
 
 	_prog.unUse();
 	glBindVertexArray(0);
