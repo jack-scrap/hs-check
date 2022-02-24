@@ -33,6 +33,12 @@ class Piece {
 
 		GLuint _ibo;
 
+		GLint _attrPos;
+
+		GLint _uniModel;
+		GLint _uniView;
+		GLint _uniProj;
+
 		Prog _prog;
 
 	public:
@@ -66,21 +72,21 @@ class Piece {
 				glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof _idc, _idc, GL_STATIC_DRAW);
 
 				// attribute
-				GLint attrPos = glGetAttribLocation(_prog._id, "pos");
-				glVertexAttribPointer(attrPos, 3, GL_FLOAT, GL_FALSE, 0, (GLvoid*) 0);
-				glEnableVertexAttribArray(attrPos);
+				_attrPos = glGetAttribLocation(_prog._id, "pos");
+				glVertexAttribPointer(_attrPos, 3, GL_FLOAT, GL_FALSE, 0, (GLvoid*) 0);
+				glEnableVertexAttribArray(_attrPos);
 
 				// uniform
-				GLint uniModel = glGetUniformLocation(_prog._id, "model");
-				GLint uniView = glGetUniformLocation(_prog._id, "view");
-				GLint uniProj = glGetUniformLocation(_prog._id, "proj");
+				_uniModel = glGetUniformLocation(_prog._id, "model");
+				_uniView = glGetUniformLocation(_prog._id, "view");
+				_uniProj = glGetUniformLocation(_prog._id, "proj");
 
 				// initialize
 				_prog.use();
 
-				glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(_model));
-				glUniformMatrix4fv(uniView, 1, GL_FALSE, glm::value_ptr(_view));
-				glUniformMatrix4fv(uniProj, 1, GL_FALSE, glm::value_ptr(_proj));
+				glUniformMatrix4fv(_uniModel, 1, GL_FALSE, glm::value_ptr(_model));
+				glUniformMatrix4fv(_uniView, 1, GL_FALSE, glm::value_ptr(_view));
+				glUniformMatrix4fv(_uniProj, 1, GL_FALSE, glm::value_ptr(_proj));
 
 				_prog.unUse();
 			}
