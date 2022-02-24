@@ -12,9 +12,11 @@ const float pad = 0.16;
 int main() {
 	Disp disp("Checkers", 800, 600);
 
-	Piece* team[2][ln * 2];
+	unsigned int no = ln * 2;
+
+	Piece* team[2][no];
 	for (int b = 0; b < 2; b++) {
-		for (int i = 0; i < ln * 2; i++) {
+		for (int i = 0; i < no; i++) {
 			team[b][i] = new Piece(glm::vec3(i % ln, (b * 4.0) + (i / ln), 0.0) * glm::vec3(Piece::sz + (pad * 2)), b);
 		}
 	}
@@ -30,7 +32,7 @@ int main() {
 		disp.clear(0.0, 0.0, 0.0, 1.0);
 
 		for (int b = 0; b < 2; b++) {
-			for (int i = 0; i < ln * 2; i++) {
+			for (int i = 0; i < no; i++) {
 				team[b][i]->draw();
 			}
 		}
