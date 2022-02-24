@@ -8,7 +8,10 @@
 int main() {
 	Disp disp("Checkers", 800, 600);
 
-	Piece piece(glm::vec3(0.0));
+	Piece* team[8];
+	for (int i = 0; i < sizeof team / sizeof *team; i++) {
+		team[i] = new Piece(glm::vec3(i * 2.0, 0.0, 0.0));
+	}
 
 	SDL_Event e;
 	while (disp.open) {
@@ -20,7 +23,9 @@ int main() {
 
 		disp.clear(0.0, 0.0, 0.0, 1.0);
 
-		piece.draw();
+		for (int i = 0; i < sizeof team / sizeof *team; i++) {
+			team[i]->draw();
+		}
 
 		disp.update();
 	}
