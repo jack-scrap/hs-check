@@ -27,18 +27,31 @@ class Piece {
 		glm::mat4 _view = glm::lookAt(glm::vec3(5.0, 5.0, 5.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0, 1, 0));
 		glm::mat4 _proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 100.0);
 
-		GLuint _vao;
-		GLuint _vbo;
+		GLuint _id[3];
 
-		GLuint _ibo;
+		GLint _attr[1];
 
-		GLint _attrPos;
-
-		GLint _uniModel;
-		GLint _uniView;
-		GLint _uniProj;
+		GLint _uni[3];
 
 		Prog _prog;
+
+		enum id {
+			VAO,
+
+			VBO,
+
+			IBO
+		};
+
+		enum attr {
+			POS
+		};
+
+		enum uni {
+			MODEL,
+			VIEW,
+			PROJ
+		};
 
 	public:
 		Piece();
