@@ -81,6 +81,8 @@ class Piece {
 				glUniformMatrix4fv(uniModel, 1, GL_FALSE, glm::value_ptr(_model));
 				glUniformMatrix4fv(uniView, 1, GL_FALSE, glm::value_ptr(_view));
 				glUniformMatrix4fv(uniProj, 1, GL_FALSE, glm::value_ptr(_proj));
+
+				_prog.unUse();
 			}
 
 		void draw() {
