@@ -60,7 +60,7 @@ int main() {
 	glm::mat4 proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 100.0);
 
 	// shader
-	Prog prog("shad", "shad");
+	Prog prog("obj", "solid");
 
 	/// attribute
 	GLint attrPos = glGetAttribLocation(prog._id, "pos");
