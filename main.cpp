@@ -11,7 +11,7 @@ const float rot = M_PI * 2;
 
 class Piece {
 	private:
-		const unsigned int _n = 6;
+		const static unsigned int _n = 6;
 
 		GLfloat _vtc[(6 * 3) + 3];
 
