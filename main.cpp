@@ -7,12 +7,14 @@
 
 const unsigned int ln = 8;
 
+const float pad = 0.16;
+
 int main() {
 	Disp disp("Checkers", 800, 600);
 
 	Piece* team[ln * 2];
 	for (int i = 0; i < sizeof team / sizeof *team; i++) {
-		team[i] = new Piece(glm::vec3(i % ln, i / ln, 0.0) * glm::vec3(Piece::sz));
+		team[i] = new Piece(glm::vec3(i % ln, i / ln, 0.0) * glm::vec3(Piece::sz + (pad * 2)));
 	}
 
 	SDL_Event e;
