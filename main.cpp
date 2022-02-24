@@ -63,7 +63,6 @@ class Piece {
 				// index
 				glGenBuffers(1, &_ibo);
 				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ibo);
-
 				glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof _idc, _idc, GL_STATIC_DRAW);
 
 				/// attribute
