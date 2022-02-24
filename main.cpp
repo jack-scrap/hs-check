@@ -20,19 +20,19 @@ int main() {
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
-	GLfloat vtc[(2 * 2 * 2) * 3];
-	int i = 0;
-	for (int z = 0; z < 2; z++) {
-		for (int y = 0; y < 2; y++) {
-			for (int x = 0; x < 2; x++) {
-				vtc[i] = x ? 1 : -1;
-				vtc[i + 1] = y ? 1 : -1;
-				vtc[i + 2] = z ? 1 : -1;
+	const float rot = M_PI * 2;
 
-				i += 3;
-			}
-		}
+	const unsigned int n = 6;
+
+	float stride = rot / n;
+
+	GLfloat vtc[n * 3];
+	for (int i = 0; i < n; i++) {
+		vtc[(i * 3)] = sin(i * stride);
+		vtc[(i * 3) + 1] = cos(i * stride);
+		vtc[(i * 3) + 2] = 0.0;
 	}
+
 	glBufferData(GL_ARRAY_BUFFER, sizeof vtc, vtc, GL_STATIC_DRAW);
 
 	// index
@@ -40,24 +40,8 @@ int main() {
 	glGenBuffers(1, &ibo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 
-	GLuint idc[3 * 2 * 3 * 2] = {
-		0, 1, 2,
-		2, 1, 3,
-
-		4, 5, 6,
-		6, 5, 7,
-
-		0, 4, 1,
-		1, 4, 5,
-
-		2, 6, 3,
-		3, 6, 7,
-
-		0, 4, 2,
-		2, 4, 6,
-
-		1, 5, 3,
-		3, 5, 7
+	GLuint idc[3 * 2] = {
+		0, 1, 2
 	};
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof idc, idc, GL_STATIC_DRAW);
 
