@@ -12,9 +12,11 @@ const float pad = 0.16;
 int main() {
 	Disp disp("Checkers", 800, 600);
 
-	Piece* team[ln * 2];
-	for (int i = 0; i < sizeof team / sizeof *team; i++) {
-		team[i] = new Piece(glm::vec3(i % ln, i / ln, 0.0) * glm::vec3(Piece::sz + (pad * 2)), false);
+	Piece* team[2][ln * 2];
+	for (int b = 0; b < 2; b++) {
+		for (int i = 0; i < ln * 2; i++) {
+			team[b][i] = new Piece(glm::vec3(i % ln, (b * 4.0) + (i / ln), 0.0) * glm::vec3(Piece::sz + (pad * 2)), b);
+		}
 	}
 
 	SDL_Event e;
@@ -27,8 +29,10 @@ int main() {
 
 		disp.clear(0.0, 0.0, 0.0, 1.0);
 
-		for (int i = 0; i < sizeof team / sizeof *team; i++) {
-			team[i]->draw();
+		for (int b = 0; b < 2; b++) {
+			for (int i = 0; i < ln * 2; i++) {
+				team[b][i]->draw();
+			}
 		}
 
 		disp.update();
