@@ -10,17 +10,19 @@ class Piece {
 	private:
 		const float rot = M_PI * 2;
 
-		const static unsigned int _n = 6;
+		const static unsigned int _n = 8;
 
-		GLfloat _vtc[(6 * 3) + 3];
+		GLfloat _vtc[(8 * 3) + 3];
 
-		GLuint _idc[6 * 3] = {
+		GLuint _idc[8 * 3] = {
 			0, 1, _n,
 			1, 2, _n,
 			2, 3, _n,
 			3, 4, _n,
 			4, 5, _n,
-			5, 0, _n
+			5, 6, _n,
+			6, 7, _n,
+			7, 0, _n
 		};
 
 		glm::mat4 _model = glm::mat4(1.0);
