@@ -92,7 +92,6 @@ class Piece {
 
 			_prog.unUse();
 			glBindVertexArray(0);
-
 		}
 };
 
