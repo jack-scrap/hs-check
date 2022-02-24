@@ -43,6 +43,7 @@ Piece::Piece(glm::vec3 loc) :
 		_uni[MODEL] = glGetUniformLocation(_prog._id, "model");
 		_uni[VIEW] = glGetUniformLocation(_prog._id, "view");
 		_uni[PROJ] = glGetUniformLocation(_prog._id, "proj");
+		_uni[ACTIVE] = glGetUniformLocation(_prog._id, "active");
 
 		// initialize
 		_prog.use();
@@ -50,6 +51,7 @@ Piece::Piece(glm::vec3 loc) :
 		glUniformMatrix4fv(_uni[MODEL], 1, GL_FALSE, glm::value_ptr(_model));
 		glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(_view));
 		glUniformMatrix4fv(_uni[PROJ], 1, GL_FALSE, glm::value_ptr(_proj));
+		glUniform1i(_uni[ACTIVE], true);
 
 		_prog.unUse();
 	}

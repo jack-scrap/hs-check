@@ -33,7 +33,7 @@ class Piece {
 
 		GLint _attr[1];
 
-		GLint _uni[3];
+		GLint _uni[4];
 
 		Prog _prog;
 
@@ -52,7 +52,9 @@ class Piece {
 		enum uni {
 			MODEL,
 			VIEW,
-			PROJ
+			PROJ,
+
+			ACTIVE
 		};
 
 	public:
