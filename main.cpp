@@ -4,10 +4,9 @@
 #include "prog.h"
 #include "util.h"
 #include "piece.h"
+#include "layout.h"
 
 const unsigned int ln = 8;
-
-const float pad = 0.16;
 
 int main() {
 	Disp disp("Checkers", 800, 600);
