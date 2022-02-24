@@ -55,10 +55,9 @@ int main() {
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof idc, idc, GL_STATIC_DRAW);
 
 	// matrix
-	glm::mat4
-		model = glm::mat4(1.0),
-		view = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)),
-		proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 100.0);
+	glm::mat4 model = glm::mat4(1.0);
+	glm::mat4 view = glm::lookAt(glm::vec3(3, 3, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+	glm::mat4 proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 100.0);
 
 	// shader
 	Prog prog("shad", "shad");
@@ -69,10 +68,9 @@ int main() {
 	glEnableVertexAttribArray(attrPos);
 
 	/// uniform
-	GLint
-		uniModel = glGetUniformLocation(prog._id, "model"),
-		uniView = glGetUniformLocation(prog._id, "view"),
-		uniProj = glGetUniformLocation(prog._id, "proj");
+	GLint uniModel = glGetUniformLocation(prog._id, "model");
+	GLint uniView = glGetUniformLocation(prog._id, "view");
+	GLint uniProj = glGetUniformLocation(prog._id, "proj");
 
 	// initialize
 	prog.use();
