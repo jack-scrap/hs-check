@@ -24,7 +24,7 @@ class Piece {
 		};
 
 		glm::mat4 _model = glm::mat4(1.0);
-		glm::mat4 _view = glm::lookAt(glm::vec3(3.0, 3.0, 3.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0, 1, 0));
+		glm::mat4 _view = glm::lookAt(glm::vec3(5.0, 5.0, 5.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0, 1, 0));
 		glm::mat4 _proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 100.0);
 
 		GLuint _vao;
