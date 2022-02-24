@@ -1,6 +1,6 @@
 CXX=g++
 
-STATIC=main disp prog util
+STATIC=main disp prog util piece
 OBJ_STATIC=$(patsubst %, %.o, $(STATIC))
 
 GL=-lGLEW -lGL
@@ -11,6 +11,9 @@ LDFLAGS+=$(GL)
 .PHONY: clean
 
 all: make
+
+%.o: %.cpp %.h
+	$(CXX) -c $< -o $@ $(LDFLAGS)
 
 %.o: %.cpp %.h
 	$(CXX) -c $< -o $@ $(LDFLAGS)
