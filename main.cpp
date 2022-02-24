@@ -14,7 +14,7 @@ int main() {
 
 	Piece* team[ln * 2];
 	for (int i = 0; i < sizeof team / sizeof *team; i++) {
-		team[i] = new Piece(glm::vec3(i % ln, i / ln, 0.0) * glm::vec3(Piece::sz + (pad * 2)));
+		team[i] = new Piece(glm::vec3(i % ln, i / ln, 0.0) * glm::vec3(Piece::sz + (pad * 2)), false);
 	}
 
 	SDL_Event e;

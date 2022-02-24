@@ -2,7 +2,7 @@
 
 #include "piece.h"
 
-Piece::Piece(glm::vec3 loc) :
+Piece::Piece(glm::vec3 loc, bool active) :
 	_prog("obj", "solid") {
 		// data
 		glGenVertexArrays(1, &_id[VAO]);
@@ -51,7 +51,7 @@ Piece::Piece(glm::vec3 loc) :
 		glUniformMatrix4fv(_uni[MODEL], 1, GL_FALSE, glm::value_ptr(_model));
 		glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(_view));
 		glUniformMatrix4fv(_uni[PROJ], 1, GL_FALSE, glm::value_ptr(_proj));
-		glUniform1i(_uni[ACTIVE], true);
+		glUniform1i(_uni[ACTIVE], active);
 
 		_prog.unUse();
 	}
