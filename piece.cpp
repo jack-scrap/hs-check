@@ -2,7 +2,7 @@
 
 #include "piece.h"
 
-Piece::Piece() :
+Piece::Piece(glm::vec3 loc) :
 	_prog("obj", "solid") {
 		// data
 		glGenVertexArrays(1, &_id[VAO]);
@@ -25,6 +25,9 @@ Piece::Piece() :
 		_vtc[(_n * 3) + 2] = 0.0;
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof _vtc, _vtc, GL_STATIC_DRAW);
+
+		// matrix
+		_model = glm::translate(_model, loc);
 
 		// index
 		glGenBuffers(1, &_id[IBO]);

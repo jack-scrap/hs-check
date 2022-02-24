@@ -54,7 +54,7 @@ class Piece {
 		};
 
 	public:
-		Piece();
+		Piece(glm::vec3 loc);
 
 		void draw();
 };

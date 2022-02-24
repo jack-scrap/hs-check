@@ -8,7 +8,7 @@
 int main() {
 	Disp disp("Checkers", 800, 600);
 
-	Piece piece;
+	Piece piece(glm::vec3(0.0));
 
 	SDL_Event e;
 	while (disp.open) {
