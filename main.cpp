@@ -11,9 +11,8 @@ int main() {
 	Disp disp("Checkers", 800, 600);
 
 	Piece* team[ln * 2];
-	const float sz = 2.0;
 	for (int i = 0; i < sizeof team / sizeof *team; i++) {
-		team[i] = new Piece(glm::vec3(i % ln, i / ln, 0.0) * glm::vec3(sz));
+		team[i] = new Piece(glm::vec3(i % ln, i / ln, 0.0) * glm::vec3(Piece::sz));
 	}
 
 	SDL_Event e;

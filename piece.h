@@ -56,6 +56,8 @@ class Piece {
 		};
 
 	public:
+		constexpr static float sz = 2.0;
+
 		Piece(glm::vec3 loc);
 
 		void draw();
