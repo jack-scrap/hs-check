@@ -26,12 +26,16 @@ int main() {
 
 	float stride = rot / n;
 
-	GLfloat vtc[n * 3];
+	GLfloat vtc[(n * 3) + 3];
 	for (int i = 0; i < n; i++) {
 		vtc[(i * 3)] = sin(i * stride);
 		vtc[(i * 3) + 1] = cos(i * stride);
 		vtc[(i * 3) + 2] = 0.0;
 	}
+
+	vtc[n * 3] = 0.0;
+	vtc[(n * 3) + 1] = 0.0;
+	vtc[(n * 3) + 2] = 0.0;
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof vtc, vtc, GL_STATIC_DRAW);
 
@@ -40,8 +44,13 @@ int main() {
 	glGenBuffers(1, &ibo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 
-	GLuint idc[3 * 2] = {
-		0, 1, 2
+	GLuint idc[n * 3] = {
+		0, 1, n,
+		1, 2, n,
+		2, 3, n,
+		3, 4, n,
+		4, 5, n,
+		5, 0, n
 	};
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof idc, idc, GL_STATIC_DRAW);
 
