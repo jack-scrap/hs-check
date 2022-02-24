@@ -7,10 +7,10 @@
 #include "prog.h"
 #include "util.h"
 
-const float rot = M_PI * 2;
-
 class Piece {
 	private:
+		const float rot = M_PI * 2;
+
 		const static unsigned int _n = 6;
 
 		GLfloat _vtc[(6 * 3) + 3];
