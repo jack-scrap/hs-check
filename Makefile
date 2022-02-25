@@ -3,6 +3,8 @@ CXX=g++
 STATIC=main disp prog util obj piece layout
 OBJ_STATIC=$(patsubst %, %.o, $(STATIC))
 
+HDR=cam.h
+
 GL=-lGLEW -lGL
 SDL=-lSDL2
 LDFLAGS+=$(SDL)
@@ -21,8 +23,8 @@ all: make
 main.o: main.cpp
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
-make: $(OBJ_STATIC)
-	$(CXX) $^ $(LDFLAGS)
+make: $(OBJ_STATIC) $(HDR)
+	$(CXX) $(OBJ_STATIC) $(LDFLAGS)
 
 clean:
 	rm *.o a.out
