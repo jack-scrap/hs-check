@@ -11,6 +11,7 @@
 int main() {
 	Disp disp("Checkers", 800, 600);
 
+	// board
 	const unsigned int ln = 8;
 
 	unsigned int no = ln * 2;
@@ -34,6 +35,7 @@ int main() {
 
 	Obj* board = new Obj(vtc, idc, sizeof idc / sizeof *idc, glm::vec3(0.0));
 
+	// pieces
 	Piece* team[2][no];
 	for (int b = 0; b < 2; b++) {
 		for (int i = 0; i < no; i++) {
