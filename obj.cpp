@@ -2,7 +2,7 @@
 
 #include "obj.h"
 
-Obj::Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, std::string vtx, std::string frag) :
+Obj::Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, glm::vec3 rot, std::string vtx, std::string frag) :
 	_prog(vtx, frag),
 	_noEl(noEl) {
 		// data
@@ -16,6 +16,13 @@ Obj::Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, std::str
 
 		// matrix
 		_model = glm::translate(_model, loc);
+
+		for (int a = 0; a < 3; a++) {
+			glm::vec3 vec = glm::vec3(0);
+			vec[a] = 1;
+
+			_model = glm::rotate(_model, rot[a], vec);
+		}
 
 		// index
 		glGenBuffers(1, &_id[IBO]);

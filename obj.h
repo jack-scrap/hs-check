@@ -43,7 +43,7 @@ class Obj {
 		};
 
 	public:
-		Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, std::string vtx, std::string frag);
+		Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, glm::vec3 rot, std::string vtx, std::string frag);
 
 		void draw();
 };
