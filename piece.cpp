@@ -2,8 +2,12 @@
 
 #include "piece.h"
 
-Piece::Piece(glm::vec3 loc, glm::vec3 rot, bool active) :
+Piece::Piece(unsigned int* pos, glm::vec3 loc, glm::vec3 rot, bool active) :
 	_prog("obj", "solid") {
+		for (int i = 0; i < 2; i++) {
+			_pos[i] = pos[i];
+		}
+
 		// data
 		glGenVertexArrays(1, &_id[VAO]);
 		glBindVertexArray(_id[VAO]);

@@ -12,6 +12,8 @@ class Piece {
 
 		const static unsigned int _n = 8;
 
+		unsigned int _pos[2];
+
 		GLfloat _vtc[((8 * 3) * 2) + 3];
 
 		GLushort _idc[8 * 3 * 2] = {
@@ -69,7 +71,7 @@ class Piece {
 	public:
 		constexpr static float sz = 2.0;
 
-		Piece(glm::vec3 loc, glm::vec3 rot, bool active);
+		Piece(unsigned int* pos, glm::vec3 loc, glm::vec3 rot, bool active);
 
 		void draw();
 };
