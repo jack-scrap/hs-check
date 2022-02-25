@@ -29,12 +29,10 @@ int main() {
 	}
 
 	GLushort idc[2 * 3];
-	for (int i = 0; i < 3; i++) {
-		idc[i] = i;
-	}
-
-	for (int i = 0; i < 3; i++) {
-		idc[((2 * 3) - 1) - i] = ((2 * 2) - 1) - i;
+	for (int b = 0; b < 2; b++) {
+		for (int i = 0; i < 3; i++) {
+			idc[b ? ((2 * 3) - 1) - i : i] = b ? ((2 * 2) - 1) - i : i;
+		}
 	}
 
 	Obj* board = new Obj(vtc, idc, sizeof idc / sizeof *idc, glm::vec3(0.0), glm::vec3(M_PI / 2, 0.0, 0.0), "obj", "board");
