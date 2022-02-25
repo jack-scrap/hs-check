@@ -8,7 +8,7 @@
 
 class Piece {
 	private:
-		const float rot = M_PI * 2;
+		const float _rot = M_PI * 2;
 
 		const static unsigned int _n = 8;
 

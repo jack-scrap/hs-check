@@ -12,7 +12,7 @@ Piece::Piece(glm::vec3 loc, bool active) :
 		glGenBuffers(1, &_id[VBO]);
 		glBindBuffer(GL_ARRAY_BUFFER, _id[VBO]);
 
-		float stride = rot / _n;
+		float stride = _rot / _n;
 
 		int teamSz = 8 * 3;
 		for (int b = 0; b < 2; b++) {
