@@ -5,6 +5,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "prog.h"
+#include "scn.h"
 
 class Piece {
 	private:
@@ -37,7 +38,7 @@ class Piece {
 		};
 
 		glm::mat4 _model = glm::mat4(1.0);
-		glm::mat4 _view = glm::lookAt(glm::vec3(30.0, 30.0, 30.0), glm::vec3(0.0), glm::vec3(0, 1, 0));
+		glm::mat4 _view = glm::lookAt(cam._loc, glm::vec3(0.0), glm::vec3(0, 1, 0));
 		glm::mat4 _proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 10000.0);
 
 		GLuint _id[3];
