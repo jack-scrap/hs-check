@@ -17,9 +17,6 @@ all: make
 %.o: %.cpp %.h
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
-%.o: %.cpp %.h
-	$(CXX) -c $< -o $@ $(LDFLAGS)
-
 main.o: main.cpp
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
