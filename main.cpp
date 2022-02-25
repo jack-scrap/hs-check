@@ -107,8 +107,8 @@ int main() {
 	int i = 0;
 	for (int y = 0; y < 2; y++) {
 		for (int x = 0; x < 2; x++) {
-			vtc[i] = x;
-			vtc[i + 1] = y;
+			vtc[i] = x * ln * stride(Piece::sz);
+			vtc[i + 1] = y * ln * stride(Piece::sz);
 			vtc[i + 2] = 0.0;
 
 			i += 3;
