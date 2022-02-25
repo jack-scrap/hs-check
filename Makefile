@@ -1,6 +1,6 @@
 CXX=g++
 
-STATIC=main.cpp disp.cpp prog.cpp util.cpp obj.cpp piece.cpp layout.cpp scn.cpp
+STATIC=main.cpp disp.cpp prog.cpp util.cpp layout.cpp obj.cpp piece.cpp scn.cpp
 OBJ_STATIC=$(patsubst %.cpp, %.o, $(STATIC))
 
 HDR=cam.h
