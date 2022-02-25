@@ -14,15 +14,18 @@ Piece::Piece(glm::vec3 loc, bool active) :
 
 		float stride = rot / _n;
 
-		for (int i = 0; i < _n; i++) {
-			_vtc[(i * 3)] = sin(i * stride);
-			_vtc[(i * 3) + 1] = cos(i * stride);
-			_vtc[(i * 3) + 2] = 0.0;
+		int teamSz = 8 * 3;
+		for (int b = 0; b < 2; b++) {
+			for (int i = 0; i < _n; i++) {
+				_vtc[(b * teamSz) + (i * 3)] = sin(i * stride);
+				_vtc[(b * teamSz) + (i * 3) + 1] = cos(i * stride);
+				_vtc[(b * teamSz) + (i * 3) + 2] = b * 0.2;
+			}
 		}
 
-		_vtc[_n * 3] = 0.0;
-		_vtc[(_n * 3) + 1] = 0.0;
-		_vtc[(_n * 3) + 2] = 0.0;
+		_vtc[_n * 2 * 3] = 0.0;
+		_vtc[(_n * 2 * 3) + 1] = 0.0;
+		_vtc[(_n * 2 * 3) + 2] = 0.0;
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof _vtc, _vtc, GL_STATIC_DRAW);
 
