@@ -2,7 +2,7 @@
 
 #include "piece.h"
 
-Piece::Piece(glm::vec3 loc, bool active) :
+Piece::Piece(glm::vec3 loc, glm::vec3 rot, bool active) :
 	_prog("obj", "solid") {
 		// data
 		glGenVertexArrays(1, &_id[VAO]);
@@ -31,6 +31,13 @@ Piece::Piece(glm::vec3 loc, bool active) :
 
 		// matrix
 		_model = glm::translate(_model, loc);
+
+		for (int a = 0; a < 3; a++) {
+			glm::vec3 vec = glm::vec3(0);
+			vec[a] = 1;
+
+			_model = glm::rotate(_model, rot[a], vec);
+		}
 
 		// index
 		glGenBuffers(1, &_id[IBO]);

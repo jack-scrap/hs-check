@@ -69,7 +69,7 @@ class Piece {
 	public:
 		constexpr static float sz = 2.0;
 
-		Piece(glm::vec3 loc, bool active);
+		Piece(glm::vec3 loc, glm::vec3 rot, bool active);
 
 		void draw();
 };
