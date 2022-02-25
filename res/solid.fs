@@ -10,8 +10,8 @@ vec3[2] purple = vec3[2](
 	vec3(97, 82, 134)
 );
 
-uniform bool active;
+uniform bool b;
 
 void main() {
-	gl_FragColor = vec4(purple[int(active)] / 255.0, 1.0);
+	gl_FragColor = vec4(purple[int(b)] / 255.0, 1.0);
 }

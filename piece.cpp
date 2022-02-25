@@ -43,7 +43,7 @@ Piece::Piece(glm::vec3 loc, bool active) :
 		_uni[MODEL] = glGetUniformLocation(_prog._id, "model");
 		_uni[VIEW] = glGetUniformLocation(_prog._id, "view");
 		_uni[PROJ] = glGetUniformLocation(_prog._id, "proj");
-		_uni[ACTIVE] = glGetUniformLocation(_prog._id, "active");
+		_uni[ACTIVE] = glGetUniformLocation(_prog._id, "b");
 
 		// initialize
 		_prog.use();
