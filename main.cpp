@@ -45,7 +45,7 @@ class Obj {
 
 	public:
 		Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc) :
-			_prog("obj", "white"),
+			_prog("obj", "board"),
 			_noEl(noEl) {
 				// data
 				glGenVertexArrays(1, &_id[VAO]);
