@@ -8,10 +8,10 @@
 #include "obj.h"
 #include "layout.h"
 
-const unsigned int ln = 8;
-
 int main() {
 	Disp disp("Checkers", 800, 600);
+
+	const unsigned int ln = 8;
 
 	unsigned int no = ln * 2;
 
