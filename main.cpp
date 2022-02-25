@@ -103,14 +103,21 @@ int main() {
 
 	unsigned int no = ln * 2;
 
-	GLfloat vtc[] = {
-		0.0, 0.0, 0.0,
-		1.0, 0.0, 0.0,
-		0.0, 1.0, 0.0
-	};
+	GLfloat vtc[2 * 2 * 3];
+	int i = 0;
+	for (int y = 0; y < 2; y++) {
+		for (int x = 0; x < 2; x++) {
+			vtc[i] = x;
+			vtc[i + 1] = y;
+			vtc[i + 2] = 0.0;
+
+			i += 3;
+		}
+	}
 
 	GLushort idc[] = {
-		0, 1, 2
+		0, 1, 2,
+		2, 1, 3
 	};
 
 	Obj* board = new Obj(vtc, idc, sizeof idc / sizeof *idc, glm::vec3(0.0));
