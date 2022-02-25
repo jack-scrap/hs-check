@@ -39,7 +39,7 @@ int main() {
 	Piece* team[2][no];
 	for (int b = 0; b < 2; b++) {
 		for (int i = 0; i < no; i++) {
-			team[b][i] = new Piece(glm::vec3(Piece::sz / 2, Piece::sz / 2, 0.0) + glm::vec3(i % ln, (b * (ln / 2)) + (i / ln), 0.0) * glm::vec3(stride(Piece::sz), stride(Piece::sz), 0.0), b);
+			team[b][i] = new Piece(glm::vec3(Piece::sz / 2, Piece::sz / 2, 0.0) + glm::vec3(i % ln, (b * ln) + (i / ln), 0.0) * glm::vec3(stride(Piece::sz), stride(Piece::sz), 0.0), b);
 		}
 	}
 
