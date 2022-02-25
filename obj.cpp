@@ -2,8 +2,8 @@
 
 #include "obj.h"
 
-Obj::Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc) :
-	_prog("obj", "board"),
+Obj::Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, std::string vtx, std::string frag) :
+	_prog(vtx, frag),
 	_noEl(noEl) {
 		// data
 		glGenVertexArrays(1, &_id[VAO]);

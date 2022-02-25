@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <GL/glew.h>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -42,7 +43,7 @@ class Obj {
 		};
 
 	public:
-		Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc);
+		Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, std::string vtx, std::string frag);
 
 		void draw();
 };
