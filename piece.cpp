@@ -96,6 +96,8 @@ void Piece::draw() {
 	glBindVertexArray(_id[VAO]);
 	_prog.use();
 
+	glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(_view));
+
 	glDrawElements(GL_TRIANGLES, _n * 3 * 2, GL_UNSIGNED_SHORT, (GLvoid*) 0);
 
 	_prog.unUse();

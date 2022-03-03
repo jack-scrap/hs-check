@@ -54,6 +54,8 @@ void Obj::draw() {
 	glBindVertexArray(_id[VAO]);
 	_prog.use();
 
+	glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(_view));
+
 	glDrawElements(GL_TRIANGLES, _noEl, GL_UNSIGNED_SHORT, (GLvoid*) 0);
 
 	_prog.unUse();
