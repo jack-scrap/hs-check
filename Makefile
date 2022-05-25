@@ -1,7 +1,7 @@
 CXX=g++
 
-STATIC=main.cpp disp.cpp prog.cpp util.cpp layout.cpp obj.cpp piece.cpp scn.cpp
-OBJ_STATIC=$(patsubst %.cpp, %.o, $(STATIC))
+SRC=main.cpp disp.cpp prog.cpp util.cpp layout.cpp obj.cpp piece.cpp scn.cpp
+OBJ=$(patsubst %.cpp, %.o, $(SRC))
 
 HDR=cam.h
 
@@ -17,8 +17,8 @@ all: check
 main.o: main.cpp
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
-check: $(OBJ_STATIC) $(HDR)
-	$(CXX) $(OBJ_STATIC) $(LDFLAGS) -o $@
+check: $(OBJ) $(HDR)
+	$(CXX) $(OBJ) $(LDFLAGS) -o $@
 
 .PHONY: clean
 clean:
