@@ -10,7 +10,7 @@ SDL=-lSDL2
 LDFLAGS+=$(SDL)
 LDFLAGS+=$(GL)
 
-.PHONY: clean
+.PHONY: all clean
 
 all: check
 
