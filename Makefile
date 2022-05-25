@@ -1,25 +1,31 @@
 CXX=g++
 
 SRC=main.cpp disp.cpp prog.cpp util.cpp layout.cpp obj.cpp piece.cpp scn.cpp
-OBJ=$(SRC:.cpp=.o)
+OBJ=$(SRC:%.cpp=$(BUILDDIR)/%.o)
 
 HDR=cam.h
+
+BUILDDIR=build
 
 LDFLAGS+=-lGLEW -lGL
 LDFLAGS+=-lSDL2
 
 .PHONY: all
-all: check
+all: mk_build check
 
-%.o: %.cpp %.h
+$(BUILDDIR)/%.o: %.cpp %.h
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
-main.o: main.cpp
+$(BUILDDIR)/main.o: main.cpp
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
 check: $(OBJ) $(HDR)
 	$(CXX) $(OBJ) $(LDFLAGS) -o $@
 
+.PHONY: mk_build
+mk_build:
+	mkdir -p $(BUILDDIR)
+
 .PHONY: clean
 clean:
-	rm *.o check
+	rm $(BUILDDIR)/*.o check
