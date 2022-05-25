@@ -5,10 +5,8 @@ OBJ_STATIC=$(patsubst %.cpp, %.o, $(STATIC))
 
 HDR=cam.h
 
-GL=-lGLEW -lGL
-SDL=-lSDL2
-LDFLAGS+=$(SDL)
-LDFLAGS+=$(GL)
+LDFLAGS+=-lGLEW -lGL
+LDFLAGS+=-lSDL2
 
 .PHONY: all
 all: check
