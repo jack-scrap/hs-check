@@ -12,7 +12,7 @@ LDFLAGS+=$(GL)
 
 .PHONY: clean
 
-all: make
+all: check
 
 %.o: %.cpp %.h
 	$(CXX) -c $< -o $@ $(LDFLAGS)
@@ -20,8 +20,8 @@ all: make
 main.o: main.cpp
 	$(CXX) -c $< -o $@ $(LDFLAGS)
 
-make: $(OBJ_STATIC) $(HDR)
-	$(CXX) $(OBJ_STATIC) $(LDFLAGS)
+check: $(OBJ_STATIC) $(HDR)
+	$(CXX) $(OBJ_STATIC) $(LDFLAGS) -o $@
 
 clean:
-	rm *.o a.out
+	rm *.o check
