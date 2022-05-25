@@ -10,8 +10,7 @@ SDL=-lSDL2
 LDFLAGS+=$(SDL)
 LDFLAGS+=$(GL)
 
-.PHONY: all clean
-
+.PHONY: all
 all: check
 
 %.o: %.cpp %.h
@@ -23,5 +22,6 @@ main.o: main.cpp
 check: $(OBJ_STATIC) $(HDR)
 	$(CXX) $(OBJ_STATIC) $(LDFLAGS) -o $@
 
+.PHONY: clean
 clean:
 	rm *.o check
