@@ -14,10 +14,10 @@ LDFLAGS+=-lSDL2
 all: mk_build check
 
 $(BUILDDIR)/%.o: %.cpp %.h
-	$(CXX) -c $< -o $@ $(LDFLAGS)
+	$(CXX) -c $< -o $@
 
 $(BUILDDIR)/main.o: main.cpp
-	$(CXX) -c $< -o $@ $(LDFLAGS)
+	$(CXX) -c $< -o $@
 
 check: $(OBJ) $(HDR)
 	$(CXX) $(OBJ) $(LDFLAGS) -o $@
