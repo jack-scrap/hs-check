@@ -3,7 +3,7 @@
 #include "piece.h"
 
 Piece::Piece(unsigned int* pos, glm::vec3 loc, glm::vec3 rot, bool active) :
-	_prog("obj", "solid") {
+	_prog("obj", "dir") {
 		for (int i = 0; i < 2; i++) {
 			_pos[i] = pos[i];
 		}
