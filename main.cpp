@@ -71,7 +71,7 @@ int main() {
 						camView = !camView;
 
 						if (camView) {
-							cam._loc = glm::vec3(30.0, 30.0, 30.0);
+							cam._loc = glm::vec3(-30.0, 30.0, -30.0);
 						} else {
 							cam._loc = glm::vec3(-(dim[X] / 2), 30.0, -(dim[Y] / 2));
 						}
