@@ -85,6 +85,16 @@ int main() {
 
 						board->_prog.unUse();
 
+						for (int b = 0; b < 2; b++) {
+							for (int i = 0; i < no; i++) {
+								team[b][i]->_prog.use();
+
+								glUniformMatrix4fv(team[b][i]->_uni[Obj::VIEW], 1, GL_FALSE, glm::value_ptr(view));
+
+								team[b][i]->_prog.unUse();
+							}
+						}
+
 						break;
 				}
 			}
