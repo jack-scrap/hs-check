@@ -3,7 +3,7 @@ CXX=g++
 SRC=main.cpp disp.cpp prog.cpp util.cpp layout.cpp obj.cpp piece.cpp scn.cpp
 OBJ=$(SRC:%.cpp=$(BUILDDIR)/%.o)
 
-HDR=cam.h
+HDR=cam.h math.h
 
 BUILDDIR=build
 

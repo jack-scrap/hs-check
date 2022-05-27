@@ -8,6 +8,7 @@
 #include "obj.h"
 #include "layout.h"
 #include "cam.h"
+#include "math.h"
 
 glm::mat4 view = glm::mat4(1.0);
 glm::mat4 proj = glm::mat4(1.0);
@@ -74,7 +75,7 @@ int main() {
 						if (camView) {
 							cam._loc = glm::vec3(30.0, 30.0, 30.0);
 						} else {
-							cam._loc = glm::vec3(-(dim[0] / 2), 30.0, -(dim[1] / 2));
+							cam._loc = glm::vec3(-(dim[X] / 2), 30.0, -(dim[Y] / 2));
 						}
 
 						view = glm::lookAt(cam._loc, glm::vec3(0.0), glm::vec3(0, 1, 0));
