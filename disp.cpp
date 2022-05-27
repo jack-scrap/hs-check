@@ -23,6 +23,9 @@ Disp::Disp(const char* title, int wd, int ht) {
 	open = true;
 
 	glEnable(GL_DEPTH_TEST);
+
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
 }
 
 void Disp::clear(float r, float g, float b, float a) {
