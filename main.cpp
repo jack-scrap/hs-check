@@ -25,16 +25,16 @@ int main() {
 	unsigned int no = ln * 2;
 
 	const float dim[2] = {
-		ln * stride(Piece::sz),
-		ln * stride(Piece::sz)
+		ln * layout::stride(Piece::sz),
+		ln * layout::stride(Piece::sz)
 	};
 
 	GLfloat vtc[2 * 2 * 3];
 	int i = 0;
 	for (int y = 0; y < 2; y++) {
 		for (int x = 0; x < 2; x++) {
-			vtc[i] = x * ln * stride(Piece::sz);
-			vtc[i + 1] = y * ln * stride(Piece::sz);
+			vtc[i] = x * ln * layout::stride(Piece::sz);
+			vtc[i + 1] = y * ln * layout::stride(Piece::sz);
 			vtc[i + 2] = 0.0;
 
 			i += 3;
@@ -46,7 +46,7 @@ int main() {
 		3, 1, 2
 	};
 
-	Obj* board = new Obj(vtc, idc, sizeof idc / sizeof *idc, glm::vec3(-center(dim[X]), 0.0, -center(dim[Y])), glm::vec3(M_PI / 2, 0.0, 0.0), "obj", "board");
+	Obj* board = new Obj(vtc, idc, sizeof idc / sizeof *idc, glm::vec3(-layout::center(dim[X]), 0.0, -layout::center(dim[Y])), glm::vec3(M_PI / 2, 0.0, 0.0), "obj", "board");
 
 	/* pieces */
 	Piece* team[2][no];
@@ -56,7 +56,7 @@ int main() {
 				0
 			};
 
-			team[b][i] = new Piece(pos, glm::vec3(center(Piece::sz), center(Piece::sz), 0.0) + glm::vec3(i % ln, (b * ln) + (i / ln), 0.0) * glm::vec3(stride(Piece::sz), stride(Piece::sz), 0.0), glm::vec3(M_PI / 2, 0.0, 0.0), b);
+			team[b][i] = new Piece(pos, glm::vec3(layout::center(Piece::sz), layout::center(Piece::sz), 0.0) + glm::vec3(i % ln, (b * ln) + (i / ln), 0.0) * glm::vec3(layout::stride(Piece::sz), layout::stride(Piece::sz), 0.0), glm::vec3(M_PI / 2, 0.0, 0.0), b);
 		}
 	}
 

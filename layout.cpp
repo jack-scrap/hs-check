@@ -1,9 +1,9 @@
 #include "layout.h"
 
-float stride(float el) {
+float layout::stride(float el) {
 	return el + (pad * 2);
 }
 
-float center(float sz) {
+float layout::center(float sz) {
 	return sz / 2;
 }
