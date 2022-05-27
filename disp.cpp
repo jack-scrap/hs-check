@@ -1,6 +1,6 @@
 #include "disp.h"
 
-Disp::Disp(const char* title, int wd, int ht) {
+Disp::Disp(const char* title, unsigned int wd, unsigned int ht) {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
 	SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);

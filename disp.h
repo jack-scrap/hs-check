@@ -13,7 +13,7 @@ class Disp {
 	public:
 		bool open = false;
 
-		Disp(const char* title, int wd, int ht);
+		Disp(const char* title, unsigned int wd, int unsigned ht);
 
 		void clear(float r, float g, float b, float a);
 
