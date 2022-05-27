@@ -56,7 +56,7 @@ int main() {
 				0
 			};
 
-			team[b][i] = new Piece(pos, glm::vec3(Piece::sz / 2, Piece::sz / 2, 0.0) + glm::vec3(i % ln, (b * ln) + (i / ln), 0.0) * glm::vec3(stride(Piece::sz), stride(Piece::sz), 0.0), glm::vec3(M_PI / 2, 0.0, 0.0), b);
+			team[b][i] = new Piece(pos, glm::vec3(center(Piece::sz), center(Piece::sz), 0.0) + glm::vec3(i % ln, (b * ln) + (i / ln), 0.0) * glm::vec3(stride(Piece::sz), stride(Piece::sz), 0.0), glm::vec3(M_PI / 2, 0.0, 0.0), b);
 		}
 	}
 
