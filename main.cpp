@@ -17,7 +17,7 @@ int main() {
 	Disp disp("Checkers", 800, 600);
 
 	view = glm::lookAt(cam._loc, glm::vec3(0.0), glm::vec3(0, 1, 0));
-	proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 10000.0);
+	proj = glm::perspective(glm::radians(45.0), (double) (disp._res[X] / (float) disp._res[Y]), 0.1, 10000.0);
 
 	/* board */
 	const unsigned int ln = 8;
@@ -73,11 +73,11 @@ int main() {
 						if (camView) {
 							cam._loc = glm::vec3(-30.0, 30.0, -30.0);
 
-							proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 10000.0);
+							proj = glm::perspective(glm::radians(45.0), (double) (disp._res[X] / (float) disp._res[Y]), 0.1, 10000.0);
 						} else {
 							cam._loc = glm::vec3(-(dim[X] / 2), 30.0, -(dim[Y] / 2));
 
-							proj = glm::ortho(-(800 / 2.0), 800 / 2.0, -(600 / 2.0), 600 / 2.0, 0.1, 10000.0);
+							proj = glm::ortho(-(disp._res[X] / 2.0), disp._res[X] / 2.0, -(disp._res[Y] / 2.0), disp._res[Y] / 2.0, 0.1, 10000.0);
 						}
 
 						view = glm::lookAt(cam._loc, glm::vec3(0.0), glm::vec3(0, 1, 0));

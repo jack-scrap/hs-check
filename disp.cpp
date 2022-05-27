@@ -1,6 +1,10 @@
 #include "disp.h"
+#include "math.h"
 
 Disp::Disp(const char* title, unsigned int wd, unsigned int ht) {
+	_res[X] = wd;
+	_res[Y] = ht;
+
 	SDL_Init(SDL_INIT_EVERYTHING);
 
 	SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
