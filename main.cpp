@@ -72,8 +72,12 @@ int main() {
 
 						if (camView) {
 							cam._loc = glm::vec3(-30.0, 30.0, -30.0);
+
+							proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 10000.0);
 						} else {
 							cam._loc = glm::vec3(-(dim[X] / 2), 30.0, -(dim[Y] / 2));
+
+							proj = glm::ortho(-(800 / 2.0), 800 / 2.0, -(600 / 2.0), 600 / 2.0, 0.1, 10000.0);
 						}
 
 						view = glm::lookAt(cam._loc, glm::vec3(0.0), glm::vec3(0, 1, 0));
@@ -81,6 +85,7 @@ int main() {
 						board->_prog.use();
 
 						glUniformMatrix4fv(board->_uni[Obj::VIEW], 1, GL_FALSE, glm::value_ptr(view));
+						glUniformMatrix4fv(board->_uni[Obj::PROJ], 1, GL_FALSE, glm::value_ptr(proj));
 
 						board->_prog.unUse();
 
@@ -89,6 +94,7 @@ int main() {
 								team[b][i]->_prog.use();
 
 								glUniformMatrix4fv(team[b][i]->_uni[Obj::VIEW], 1, GL_FALSE, glm::value_ptr(view));
+								glUniformMatrix4fv(team[b][i]->_uni[Obj::PROJ], 1, GL_FALSE, glm::value_ptr(proj));
 
 								team[b][i]->_prog.unUse();
 							}
