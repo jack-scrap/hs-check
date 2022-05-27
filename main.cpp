@@ -61,13 +61,21 @@ int main() {
 		}
 	}
 
+	bool camView = false;
+
 	SDL_Event e;
 	while (disp.open) {
 		while (SDL_PollEvent(&e)) {
 			if (e.type == SDL_KEYDOWN) {
 				switch (e.key.keysym.sym) {
 					case SDLK_F5:
-						cam._loc = glm::vec3(-(dim[0] / 2), 30.0, -(dim[1] / 2));
+						camView = !camView;
+
+						if (camView) {
+							cam._loc = glm::vec3(30.0, 30.0, 30.0);
+						} else {
+							cam._loc = glm::vec3(-(dim[0] / 2), 30.0, -(dim[1] / 2));
+						}
 
 						view = glm::lookAt(cam._loc, glm::vec3(0.0), glm::vec3(0, 1, 0));
 
