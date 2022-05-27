@@ -46,7 +46,7 @@ int main() {
 		3, 1, 2
 	};
 
-	Obj* board = new Obj(vtc, idc, sizeof idc / sizeof *idc, glm::vec3(0.0), glm::vec3(M_PI / 2, 0.0, 0.0), "obj", "board");
+	Obj* board = new Obj(vtc, idc, sizeof idc / sizeof *idc, glm::vec3(-center(dim[X]), 0.0, -center(dim[Y])), glm::vec3(M_PI / 2, 0.0, 0.0), "obj", "board");
 
 	/* pieces */
 	Piece* team[2][no];
