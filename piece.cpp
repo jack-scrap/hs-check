@@ -2,6 +2,9 @@
 
 #include "piece.h"
 
+extern glm::mat4 view;
+extern glm::mat4 proj;
+
 Piece::Piece(unsigned int* pos, glm::vec3 loc, glm::vec3 rot, bool active) :
 	_prog("obj", "dir") {
 		for (int i = 0; i < 2; i++) {
@@ -85,8 +88,8 @@ Piece::Piece(unsigned int* pos, glm::vec3 loc, glm::vec3 rot, bool active) :
 		_prog.use();
 
 		glUniformMatrix4fv(_uni[MODEL], 1, GL_FALSE, glm::value_ptr(_model));
-		glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(_view));
-		glUniformMatrix4fv(_uni[PROJ], 1, GL_FALSE, glm::value_ptr(_proj));
+		glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(_uni[PROJ], 1, GL_FALSE, glm::value_ptr(proj));
 		glUniform1i(_uni[ACTIVE], active);
 
 		_prog.unUse();
@@ -96,7 +99,7 @@ void Piece::draw() {
 	glBindVertexArray(_id[VAO]);
 	_prog.use();
 
-	glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(_view));
+	glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(view));
 
 	glDrawElements(GL_TRIANGLES, _n * 3 * 2, GL_UNSIGNED_SHORT, (GLvoid*) 0);
 

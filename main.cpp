@@ -7,9 +7,16 @@
 #include "piece.h"
 #include "obj.h"
 #include "layout.h"
+#include "cam.h"
+
+glm::mat4 view = glm::mat4(1.0);
+glm::mat4 proj = glm::mat4(1.0);
 
 int main() {
 	Disp disp("Checkers", 800, 600);
+
+	view = glm::lookAt(cam._loc, glm::vec3(0.0), glm::vec3(0, 1, 0));
+	proj = glm::perspective(glm::radians(45.0), 800.0 / 600.0, 0.1, 10000.0);
 
 	/* board */
 	const unsigned int ln = 8;
@@ -52,6 +59,15 @@ int main() {
 	SDL_Event e;
 	while (disp.open) {
 		while (SDL_PollEvent(&e)) {
+			if (e.type == SDL_KEYDOWN) {
+				switch (e.key.keysym.sym) {
+					case SDLK_F5:
+						std::cout << "asdf" << std::endl;
+
+						break;
+				}
+			}
+
 			if (e.type == SDL_QUIT) {
 				SDL_Quit();
 			}

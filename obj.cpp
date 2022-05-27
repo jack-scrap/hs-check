@@ -2,6 +2,9 @@
 
 #include "obj.h"
 
+extern glm::mat4 view;
+extern glm::mat4 proj;
+
 Obj::Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, glm::vec3 rot, std::string vtx, std::string frag) :
 	_prog(vtx, frag),
 	_noEl(noEl) {
@@ -44,8 +47,8 @@ Obj::Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, glm::vec
 		_prog.use();
 
 		glUniformMatrix4fv(_uni[MODEL], 1, GL_FALSE, glm::value_ptr(_model));
-		glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(_view));
-		glUniformMatrix4fv(_uni[PROJ], 1, GL_FALSE, glm::value_ptr(_proj));
+		glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(_uni[PROJ], 1, GL_FALSE, glm::value_ptr(proj));
 
 		_prog.unUse();
 	}
@@ -54,7 +57,7 @@ void Obj::draw() {
 	glBindVertexArray(_id[VAO]);
 	_prog.use();
 
-	glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(_view));
+	glUniformMatrix4fv(_uni[VIEW], 1, GL_FALSE, glm::value_ptr(view));
 
 	glDrawElements(GL_TRIANGLES, _noEl, GL_UNSIGNED_SHORT, (GLvoid*) 0);
 
