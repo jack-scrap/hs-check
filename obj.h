@@ -17,10 +17,6 @@ class Obj {
 
 		GLint _attr[1];
 
-		GLint _uni[4];
-
-		Prog _prog;
-
 		enum id {
 			VAO,
 
@@ -33,6 +29,15 @@ class Obj {
 			POS
 		};
 
+	public:
+		GLint _uni[4];
+
+		Prog _prog;
+
+		Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, glm::vec3 rot, std::string vtx, std::string frag);
+
+		void draw();
+
 		enum uni {
 			MODEL,
 			VIEW,
@@ -40,9 +45,4 @@ class Obj {
 
 			ACTIVE
 		};
-
-	public:
-		Obj(GLfloat* vtc, GLushort* idc, unsigned int noEl, glm::vec3 loc, glm::vec3 rot, std::string vtx, std::string frag);
-
-		void draw();
 };

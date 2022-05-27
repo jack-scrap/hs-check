@@ -21,10 +21,6 @@ class Piece {
 
 		GLint _attr[1];
 
-		GLint _uni[4];
-
-		Prog _prog;
-
 		enum id {
 			VAO,
 
@@ -37,6 +33,17 @@ class Piece {
 			POS
 		};
 
+	public:
+		GLint _uni[4];
+
+		Prog _prog;
+
+		constexpr static float sz = 2.0;
+
+		Piece(unsigned int* pos, glm::vec3 loc, glm::vec3 rot, bool active);
+
+		void draw();
+
 		enum uni {
 			MODEL,
 			VIEW,
@@ -44,11 +51,4 @@ class Piece {
 
 			ACTIVE
 		};
-
-	public:
-		constexpr static float sz = 2.0;
-
-		Piece(unsigned int* pos, glm::vec3 loc, glm::vec3 rot, bool active);
-
-		void draw();
 };

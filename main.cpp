@@ -23,6 +23,11 @@ int main() {
 
 	unsigned int no = ln * 2;
 
+	const float dim[2] = {
+		ln * stride(Piece::sz),
+		ln * stride(Piece::sz)
+	};
+
 	GLfloat vtc[2 * 2 * 3];
 	int i = 0;
 	for (int y = 0; y < 2; y++) {
@@ -62,7 +67,15 @@ int main() {
 			if (e.type == SDL_KEYDOWN) {
 				switch (e.key.keysym.sym) {
 					case SDLK_F5:
-						std::cout << "asdf" << std::endl;
+						cam._loc = glm::vec3(-(dim[0] / 2), 30.0, -(dim[1] / 2));
+
+						view = glm::lookAt(cam._loc, glm::vec3(0.0), glm::vec3(0, 1, 0));
+
+						board->_prog.use();
+
+						glUniformMatrix4fv(board->_uni[Obj::VIEW], 1, GL_FALSE, glm::value_ptr(view));
+
+						board->_prog.unUse();
 
 						break;
 				}
