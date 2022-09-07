@@ -1,5 +1,9 @@
 CXX=g++
 
+PREFIX=/usr/local
+
+BINDIR=$(PREFIX)/bin
+
 SRC=main.cpp disp.cpp prog.cpp util.cpp layout.cpp obj.cpp piece.cpp scn.cpp
 OBJ=$(SRC:%.cpp=$(BUILDDIR)/%.o)
 
@@ -25,6 +29,10 @@ check: $(OBJ) $(HDR)
 .PHONY: mk_build
 mk_build:
 	mkdir -p $(BUILDDIR)
+
+.PHONY: install
+install:
+	sudo cp check $(BINDIR)
 
 .PHONY: clean
 clean:
