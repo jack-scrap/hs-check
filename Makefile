@@ -33,6 +33,10 @@ mk_build:
 install:
 	cp check $(BINDIR)
 
+.PHONY: uninstall
+uninstall:
+	rm $(BINDIR)/check
+
 .PHONY: clean
 clean:
 	rm $(BUILDDIR)/*.o check
