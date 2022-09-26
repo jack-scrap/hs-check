@@ -11,8 +11,7 @@ HDR=cam.h math.h
 
 BUILDDIR=build
 
-LDFLAGS+=-lGLEW -lGL
-LDFLAGS+=-lSDL2
+LDFLAGS=-lGLEW -lGL -lSDL2
 
 .PHONY: all
 all: mk_build check
