@@ -31,7 +31,7 @@ mk_build:
 
 .PHONY: install
 install:
-	sudo cp check $(BINDIR)
+	cp check $(BINDIR)
 
 .PHONY: clean
 clean:
