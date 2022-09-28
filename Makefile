@@ -1,5 +1,7 @@
 CXX=g++
 
+EXEC=check
+
 PREFIX=/usr/local
 
 BINDIR=$(PREFIX)/bin
@@ -14,7 +16,7 @@ BUILDDIR=build
 LDFLAGS=-lGLEW -lGL -lSDL2
 
 .PHONY: all
-all: mk_build check
+all: mk_build $(EXEC)
 
 $(BUILDDIR)/%.o: %.cpp %.h
 	$(CXX) -c $< -o $@
@@ -22,7 +24,7 @@ $(BUILDDIR)/%.o: %.cpp %.h
 $(BUILDDIR)/main.o: main.cpp
 	$(CXX) -c $< -o $@
 
-check: $(OBJ) $(HDR)
+$(EXEC): $(OBJ) $(HDR)
 	$(CXX) $(OBJ) $(LDFLAGS) -o $@
 
 .PHONY: mk_build
@@ -31,12 +33,12 @@ mk_build:
 
 .PHONY: install
 install:
-	cp check $(BINDIR)
+	cp $(EXEC) $(BINDIR)
 
 .PHONY: uninstall
 uninstall:
-	rm $(BINDIR)/check
+	rm $(BINDIR)/$(EXEC)
 
 .PHONY: clean
 clean:
-	rm $(BUILDDIR)/*.o check
+	rm $(BUILDDIR)/*.o $(EXEC)
